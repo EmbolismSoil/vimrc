@@ -5,10 +5,10 @@ set nocompatible
 syntax enable
 "set t_Co=256
 "let g:solarized_termcolors=256
-set background=dark
 call togglebg#map("<F5>")
-"set background=light
-colorscheme monokai
+set background=light
+"set background=dark
+colorscheme gruvbox
 
 
 
@@ -51,6 +51,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'endel/vim-github-colorscheme'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'morhetz/gruvbox'
 
 call vundle#end()
 "filetype plugin indent on
@@ -182,7 +183,7 @@ map <c-x> :close<CR>
 map <c-t> :TlistToggle<CR>
 set tags=tags;
 set autochdir
-let Tlist_Auto_Open = 1
+let Tlist_Auto_Open = 0
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window = 1
 let Tlist_Show_One_File = 1
