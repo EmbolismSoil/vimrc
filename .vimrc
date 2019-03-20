@@ -129,8 +129,6 @@ let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_complete_in_strings=1
 let g:ycm_key_invoke_completion = '<c-z>'
-nnoremap <leader>jd :LspDefinition<CR>
-nnoremap <leader>jr :LspReferences<CR>
 
 "let g:jedi#completions_enabled = 0
 "
@@ -223,5 +221,10 @@ let g:completor_python_binary = '/usr/bin/python3'
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+nnoremap <leader>jd :LspDefinition<CR>
+nnoremap <leader>jr :LspReferences<CR>
+
+nnoremap <leader>ne :LspNextError<CR>
+nnoremap <leader>pe :LspPreviousError<CR>
 
 let g:completor_complete_options = 'menuone,noselect'
