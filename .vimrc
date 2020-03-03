@@ -5,24 +5,23 @@ set nocompatible
 syntax enable
 "set t_Co=256
 "let g:solarized_termcolors=256
-call togglebg#map("<F5>")
-set background=light
+"call togglebg#map("<F5>")
+"set background=light
 "set background=dark
-colorscheme gruvbox
+"colorscheme gruvbox
 
 
 
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin('/home/ubuntu/.vim/bundle')
+call vundle#begin('/home/lee/.vim/bundle')
 
 " 在这里面输入安装的插件
 " Vundle 本身就是一个插件
 Plugin 'gmarik/Vundle.vim'
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'Lokaltog/vim-powerline'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'prabirshrestha/async.vim'
 Plugin 'prabirshrestha/vim-lsp'
-Plugin 'maralla/completor.vim'
+"Plugin 'maralla/completor.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'Yggdroot/indentLine'
@@ -125,11 +124,26 @@ let g:ycm_seed_identifiers_with_syntax=1	" 语法关键字补全
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_autoclose_preview_window_after_insertion=0
 let g:ycm_show_diagnostics_ui = 0
-let g:ycm_server_log_level = 'info'
+let g:ycm_server_log_level = 'debug'
 let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_complete_in_strings=1
-let g:ycm_key_invoke_completion = '<c-z>'
+let g:ycm_semantic_triggers =  {
+\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+\ 'cs,lua,javascript': ['re!\w{2}'],
+\}
+let g:ycm_filetype_whitelist = { 
+\ "c":1,
+\ "cpp":1, 
+\ "objc":1,
+\ "sh":1,
+\ "zsh":1,
+\ "zimbu":1,
+\ "python":1
+\}
+nnoremap <leader>d :YcmCompleter GoToDefineition<CR>
+nnoremap <leader>r :YcmCompleter GoToDeclaration<CR>
+"let g:ycm_key_invoke_completion = '<c-z>'
 
 "let g:jedi#completions_enabled = 0
 "
@@ -151,7 +165,7 @@ map <c-up> <c-w>k
 
 map <c-f> :Autopep8<CR>
 let g:pymode_options = 1
-let g:pymode_python = 'python'
+let g:pymode_python = 'python3'
 "开启python所有的语法高亮
 let g:pymode_syntax = 1
 let g:pymode_syntax_all = 1
@@ -225,7 +239,7 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 nnoremap <leader>jd :LspDefinition<CR>
 nnoremap <leader>jr :LspReferences<CR>
 
-nnoremap <leader>ne :LspNextError<CR>
-nnoremap <leader>pe :LspPreviousError<CR>
+"nnoremap <leader>ne :LspNextError<CR>
+"nnoremap <leader>pe :LspPreviousError<CR>
 
 let g:completor_complete_options = 'menuone,noselect'
