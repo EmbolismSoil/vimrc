@@ -3,13 +3,14 @@ filetype off                  " required
 
 set nocompatible
 syntax enable
-"set t_Co=256
+set t_Co=256
 "let g:solarized_termcolors=256
 "call togglebg#map("<F5>")
 "set background=light
 "set background=dark
-"colorscheme gruvbox
+"colorscheme github
 
+colorscheme hydrangea
 
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -21,7 +22,6 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'prabirshrestha/async.vim'
 Plugin 'prabirshrestha/vim-lsp'
-"Plugin 'maralla/completor.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'Yggdroot/indentLine'
@@ -34,11 +34,9 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'altercation/solarized'
 Plugin 'nvie/vim-flake8'
-"Plugin 'msanders/snipmate.vim'
 Plugin 'w0rp/ale'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-"Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'drmingdrmer/xptemplate'
 Plugin 'python-mode/python-mode'
@@ -51,6 +49,8 @@ Plugin 'endel/vim-github-colorscheme'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'morhetz/gruvbox'
+Plugin 'mhartington/oceanic-next'
+Plugin 'yuttie/hydrangea-vim'
 
 call vundle#end()
 "filetype plugin indent on
@@ -228,18 +228,3 @@ map <leader>gd :Gvdiff<CR>
 map <leader>gs :Gstatus<CR>
 
 map <leader>mk :MarkdownPreview<CR>
-
-if executable('pyls')
-    au User lsp_setup call lsp#register_server({ 'name': 'pyls', 'cmd': {server_info->['pyls']}, 'whitelist': ['python'] })
-endif
-let g:completor_python_binary = '/usr/bin/python3'
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
-nnoremap <leader>jd :LspDefinition<CR>
-nnoremap <leader>jr :LspReferences<CR>
-
-"nnoremap <leader>ne :LspNextError<CR>
-"nnoremap <leader>pe :LspPreviousError<CR>
-
-let g:completor_complete_options = 'menuone,noselect'
