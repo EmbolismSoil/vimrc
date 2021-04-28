@@ -42,6 +42,7 @@ Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'tamago324/LeaderF-filer'
 Plug 'tenfyzhong/vim-gencode-cpp'
 Plug 'vim-scripts/a.vim'
+Plug 'antoyo/vim-licenses'
 call plug#end()
 
 let g:airline_theme='onehalfdark'
@@ -171,8 +172,14 @@ let g:Lf_GtagsAutoGenerate = 1
 let $GTAGSLABEL = 'native-pygments'
 let $GTAGSCONF = '/usr/local/share/gtags/gtags.conf'
 
+"for terminal
+nmap <leader>vt :vert terminal<CR>
 
 set autoindent
 set tabstop=4
 set shiftwidth=4
 set softtabstop=-1
+
+"for license
+let g:licenses_copyright_holders_name = 'Lee, Conley <743703241@qq.com>'
+let g:licenses_authors_name = 'Lee, Conley <743703241@qq.com>'
